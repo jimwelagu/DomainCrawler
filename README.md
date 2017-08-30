@@ -18,8 +18,8 @@ The following webcrawler will search for all links under a target domain. The we
 ## Example
 `python activate.py`
 ```
-Starting URL: http://oregonstate.edu
-Target Domain: oregonstate.edu
+Starting URL: https://twitter.com
+Target Domain: twitter.com
 Download Delay [Default: 0]: 0
 ```
 `cat output.txt`
