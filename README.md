@@ -1,7 +1,7 @@
 # DomainCrawler
 
 ## Description
-The following webcrawler will search for all links under a target domain. Webcrawler uses the scrapy library.
+The following webcrawler will search for all links under a target domain. The web crawler utilizes [Scrapy](https://scrapy.org/), applicaton framework for writing web spiders that crawl through the web.
 
 ## Get Started
 1. [Download and Install Scrapy](https://doc.scrapy.org/en/latest/intro/install.html) 
@@ -14,3 +14,4 @@ The following webcrawler will search for all links under a target domain. Webcra
 
 4. Run the webcrawler
 `python activate.py`
+
