@@ -28,10 +28,11 @@ def delete_duplicates(target):
 			f.write(link)
 
 def highlight_history():
+	#Store output.txt in links
 	with open('output.txt', 'r') as f:
 		links = f.readlines()
 		f.closed
-
+	
 	if os.path.isfile('temp.txt'):
 		with open('temp.txt', 'r') as f:
 			temp = f.readlines()
@@ -41,8 +42,15 @@ def highlight_history():
 			for link in links:
 				if link not in temp:
 					addedlink = '[++] {}'.format(link)	
+					print(addedlink)
 					links[links.index(link)] = addedlink
-		
+
+			for templink in temp:
+				if templink not in links:
+					removedlink = '[--] {}'.format(templink)
+					print(removedlink)
+					links.append(removedlink)
+									
 			links_set = set(links)	
 		
 			for link in links_set:
@@ -50,16 +58,27 @@ def highlight_history():
 		
 			f.closed
 
+		#Overwrite temp.txt with new results
 		with open('output.txt', 'r') as f:
-			links = f.read()
-			links = links.replace('[++] ', '')
+			links = f.readlines()
 			f.closed
+
+			for link in links:
+				if '[++] ' in link:
+					links[links.index(link)] =  link.replace('[++] ', '')
+				if '[--] ' in link:
+					del links[links.index(link)]
+			
+			
+			links_set = set(links)
 		with open('temp.txt', 'w') as f:
-			f.write(links)
-			f.closed 				
+			for link in links_set:
+				f.write(link)
+			f.closed			
 		
 								 
 	else:
+		#Create file called 'temp.txt' and save new results
 		with open('output.txt', 'r') as f:
 			links = f.read()
 			f.closed
@@ -69,13 +88,25 @@ def highlight_history():
 
 def remove_highlights():
 	with open('output.txt', 'r') as f:
-                links = f.read()
-                links = links.replace('[++] ', '')
-                f.closed
+		links = f.readlines()
+		f.closed	
+
+		for link in links:
+                                if '[++] ' in link:
+                                        links[links.index(link)] =  link.replace('[++] ', '')
+                                if '[--] ' in link:
+                                        del links[links.index(link)]
+	
+		links_set = set(links)
+
         #After replacing, Write to the file     
         with open('output.txt', 'w') as f:
-                f.write(links)
-                f.closed
+                for link in links_set:
+			f.write(link)
+		
+		f.closed
+
+
 def main():
 	print('~~~~~~~~~ WEBCRAWLER ~~~~~~~~~~')
 
@@ -93,14 +124,14 @@ def main():
 	
 	remove_highlights()
 	delete_duplicates(target)
-	       
+
 	#Highlights what links has been added
-	highlight_history()	
+	highlight_history()
 
 	#Deletes duplicates in the file	
 	delete_duplicates(target)
 	
      	call(['sort', 'output.txt', '-o', 'output.txt'])
-
+	call(['sort', 'temp.txt', '-o', 'temp.txt'])
 
 main()
