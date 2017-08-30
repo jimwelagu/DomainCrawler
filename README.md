@@ -15,3 +15,20 @@ The following webcrawler will search for all links under a target domain. The we
 4. Run the webcrawler
 `python activate.py`
 
+## Example
+`python activate.py`
+```
+Starting URL: http://oregonstate.edu
+Target Domain: oregonstate.edu
+Download Delay [Default: 0]: 0
+```
+`cat output.txt`
+```
+/dev.twitter.com
+http://m.twitter.com
+https://about.twitter.com
+https://apps.twitter.com
+https://blog.twitter.com
+.....
+```
+
