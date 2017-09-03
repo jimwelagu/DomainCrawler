@@ -4,7 +4,13 @@
 The following webcrawler will search for all links under a target domain. The web crawler utilizes [Scrapy](https://scrapy.org/), applicaton framework for writing web spiders that crawl through the web.
 
 ## Get Started
-1. [Download and Install Scrapy](https://doc.scrapy.org/en/latest/intro/install.html) 
+1. Download and Install 
+ 
+   + [Scrapy](https://doc.scrapy.org/en/latest/intro/install.html) 
+ 
+   + [py-term](https://github.com/gravmatt/py-term)
+ 
+   + or Install using pip `pip install -r requirements.txt`
 
 2. Navigate to the spider's directory
 `cd webcrawler/spider/`
