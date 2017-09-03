@@ -109,17 +109,26 @@ def remove_highlights():
 
 def view_links():
 	with open('output.txt', 'r') as f:
-		links = f.read()
-		print(links)
+		links = f.readlines()
 		f.closed	
+
+	for link in links:
+		if '[++] ' in link:
+			term.writeLine(link, term.green)
+		elif '[--] ' in link:
+			term.writeLine(link, term.red)
+		else:
+			term.writeLine(link)
+			
 
 def menu():
 	term.writeLine('DOMAIN CRAWLER'.center(40, '*'))
 	term.writeLine('[1] Crawler Settings')
 	term.writeLine('[2] View Links')
 	term.writeLine('[3] View HTTP Headers') 
-	term.writeLine('[4] Run!')
-	term.writeLine('[5] Exit')
+	term.writeLine('[4] Clear Links')
+	term.writeLine('[5] Run!')
+	term.writeLine('[6] Exit')
 	
 	term.writeLine('')
 	choice = int(input('Enter Number: ')) 
@@ -148,6 +157,10 @@ def main():
 			print('Coming Soon')
 		
 		elif choice == 4:
+			with open('output.txt') as f:
+				f.write()
+		
+		elif choice == 5:
        			#Sets settings of the crawler. Currently only supports 'DOWNLOAD_DELAY'
 			process = CrawlerProcess({
 					'DOWNLOAD_DELAY': '{}'.format(down_delay)})
@@ -168,7 +181,7 @@ def main():
 			call(['sort', 'output.txt', '-o', 'output.txt'])
 			call(['sort', 'temp.txt', '-o', 'temp.txt'])
 		
-		elif choice == 5:
+		elif choice == 6:
 			status = 0
 
 main()

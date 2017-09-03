@@ -1,12 +1,11 @@
 emailto:HI.BudgetandFinance@hawaii.gov
-[--] ergrt
 http://aerospace.hawaii.gov
 http://ag.hawaii.gov
 http://ags.hawaii.gov
-[++] http://alohastadium.hawaii.gov
-[++] http://budget.hawaii.gov
-[++] http://cca.hawaii.gov
-[++] http://census.hawaii.gov
+http://alohastadium.hawaii.gov
+http://budget.hawaii.gov
+http://cca.hawaii.gov
+http://census.hawaii.gov
 http://cid.hawaii.gov
 http://creativelab.hawaii.gov
 http://dbedt.hawaii.gov
@@ -112,4 +111,3 @@ mailto:webmail@doh.hawaii.gov
 mailto:webmaster@capitol.hawaii.gov
 /redirect.aspx?page=http://portal.ehawaii.gov
 /redirect.aspx?page=http://www.ombudsman.hawaii.gov
-[--] wrfwef
