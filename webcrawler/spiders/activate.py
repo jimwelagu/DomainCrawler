@@ -157,9 +157,11 @@ def main():
 			print('Coming Soon')
 		
 		elif choice == 4:
-			with open('output.txt') as f:
-				f.write()
-		
+			open('output.txt', 'w').close()
+			
+			if os.path.isfile('temp.txt'):
+				os.remove('temp.txt')	
+
 		elif choice == 5:
        			#Sets settings of the crawler. Currently only supports 'DOWNLOAD_DELAY'
 			process = CrawlerProcess({
