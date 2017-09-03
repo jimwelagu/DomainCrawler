@@ -13,13 +13,15 @@ The following webcrawler will search for all links under a target domain. The we
    + or Install using pip `pip install -r requirements.txt`
 
 2. Navigate to the spider's directory
-`cd webcrawler/spider/`
 
-3. Make sure output.txt is empty
-`> output.txt`
+    `cd webcrawler/spider/`
 
-4. Run the webcrawler
-`python activate.py`
+3. Run the webcrawler
+
+    `python activate.py`
+
+4. Make sure list of links is empty
+`[4]` Clear Links
 
 ## Example
 `python activate.py`
