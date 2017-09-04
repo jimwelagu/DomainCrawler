@@ -15,7 +15,7 @@ class DomainSpider(scrapy.Spider):
 			
 	def parse(self, response):
 		links = response.css('a::attr(href)').extract()
-		
+		print(response.headers.getlist('Set-Cookie'))	
 		for link in links:
 			if self.target not in link:		
 				continue
@@ -28,6 +28,7 @@ class DomainSpider(scrapy.Spider):
 					
 					with open('output.txt', 'a') as f:
 						f.write('{}\n'.format(link))
+						f.write('{}\n\n'.format(response.headers.getlist('Set-Cookies')))
 						f.closed	
 					
 					yield response.follow(link, callback=self.parse)

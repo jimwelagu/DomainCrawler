@@ -5,6 +5,7 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 import os.path
 import term
+import urllib2
 
 def delete_duplicates(target):
 	target_rem = '{}/'.format(target)
@@ -119,7 +120,18 @@ def view_links():
 			term.writeLine(link, term.red)
 		else:
 			term.writeLine(link)
+
+def view_http_headers():
 			
+	view_links()
+	url = raw_input('URL: ')
+	response = urllib2.urlopen(url)
+	http_headers = response.info()
+	
+	term.writeLine('')
+	term.writeLine(''.center(40,'*'))
+	print(http_headers)
+	term.writeLine(''.center(40,'*'))
 
 def menu():
 	term.writeLine('DOMAIN CRAWLER'.center(40, '*'))
@@ -154,8 +166,8 @@ def main():
 			view_links()
 	
 		elif choice == 3:
-			print('Coming Soon')
-		
+			view_http_headers()	
+	
 		elif choice == 4:
 			open('output.txt', 'w').close()
 			
